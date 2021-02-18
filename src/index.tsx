@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import SiteLayout from './SiteLayout'
 import reportWebVitals from './reportWebVitals'
+import { ThemeProvider } from '@material-ui/core/styles'
+import { theme } from './Theme'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <SiteLayout />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
