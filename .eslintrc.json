@@ -32,7 +32,7 @@
     ],
     "max-lines-per-function": [
       "error",
-      40
+      80
     ],
     "no-restricted-imports": [
       "error",
