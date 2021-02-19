@@ -1,9 +1,8 @@
 import React from 'react'
 import { render } from 'react-snapshot'
-import SiteLayout from './SiteLayout'
+import SiteLayout from './core'
 import reportWebVitals from './reportWebVitals'
 import { ThemeProvider } from '@material-ui/core/styles'
-
 import { theme } from './theme'
 
 render(
