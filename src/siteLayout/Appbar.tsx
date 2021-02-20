@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
+import { IconButton, useScrollTrigger } from '@material-ui/core'
 import MenuIcon from '../assets/icons/MenuIcon'
 import LogoIcon from '../assets/icons/LogoIcon'
 import UserIcon from '../assets/icons/UserIcon'
@@ -49,15 +49,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Appbar: React.FC = () => {
   const classes = useStyles()
-  const [visible, setVisible] = React.useState(true)
-
-  const handleChange = () => {
-    setVisible(prev => !prev)
-  }
+  const trigger = useScrollTrigger()
 
   return (
     <>
-      <AppBar position="sticky" className={classes.root} onClick={handleChange}>
+      <AppBar position="sticky" className={classes.root}>
         <Toolbar className={classes.toolbar}>
           <IconButton className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon fontSize="small" />
@@ -78,7 +74,7 @@ const Appbar: React.FC = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Slide direction="down" in={visible}>
+      <Slide appear={false} direction="down" in={!trigger}>
         <Toolbar className={classes.searchToolbar}>
           <InputBase
             startAdornment={<SearchIcon />}

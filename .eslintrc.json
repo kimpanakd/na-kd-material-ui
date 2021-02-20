@@ -34,6 +34,8 @@
       "error",
       80
     ],
+    "sonarjs/explicit-module-boundary-types": 0,
+    "sonarjs/prefer-immediate-return": 0,
     "no-restricted-imports": [
       "error",
       {

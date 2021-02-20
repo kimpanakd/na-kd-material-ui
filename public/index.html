@@ -4,14 +4,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#000000">
     <meta name="Nakd" content="Nakd">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/na-kd/apple-touch-icon.png?ref=2">
-    <link rel="icon" type="image/png" href="/favicons/na-kd/favicon-32x32.png?ref=2" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicons/na-kd/favicon-16x16.png?ref=2" sizes="16x16">
-    <link rel="icon" type="image/png" href="/favicons/na-kd/favicon-192x192.png?ref=2" sizes="192x192">
-    <link rel="icon" type="image/png" href="/favicons/na-kd/favicon-512x512.png?ref=2" sizes="512x512">
-    <link rel="mask-icon" href="/favicons/na-kd/safari-pinned-tab.svg?ref=2" color="#000">
-    <link rel="shortcut icon" href="/favicons/na-kd/favicon.ico?ref=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%//favicons/na-kd/apple-touch-icon.png?ref=2">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%//favicons/na-kd/favicon-32x32.png?ref=2" sizes="32x32">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%//favicons/na-kd/favicon-16x16.png?ref=2" sizes="16x16">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%//favicons/na-kd/favicon-192x192.png?ref=2" sizes="192x192">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%//favicons/na-kd/favicon-512x512.png?ref=2" sizes="512x512">
+    <link rel="mask-icon" href="%PUBLIC_URL%//favicons/na-kd/safari-pinned-tab.svg?ref=2" color="#000">
+    <link rel="shortcut icon" href="%PUBLIC_URL%//favicons/na-kd/favicon.ico?ref=2">
     <link rel="stylesheet" href="https://use.typekit.net/pyf7mlb.css">
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -41,18 +42,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-          // Registration was successful
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(function(err) {
-          // registration failed :(
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      }
-      </script>
-  
-
 </body></html>
 
