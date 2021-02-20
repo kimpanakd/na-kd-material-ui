@@ -1,9 +1,21 @@
 import React from 'react'
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
 import { SvgIcon, SvgIconProps } from '@material-ui/core'
 
-const MenuIcon: React.FC = (props: SvgIconProps) => (
-  <>
-    <SvgIcon {...props}>
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      width: 20,
+      height: 16,
+    },
+  })
+)
+
+const MenuIcon = (props: SvgIconProps) => {
+  const classes = useStyles()
+
+  return (
+    <SvgIcon {...props} className={classes.root} viewBox="0 0 20 16">
       <g
         id="Assets"
         stroke="none"
@@ -22,7 +34,7 @@ const MenuIcon: React.FC = (props: SvgIconProps) => (
         </g>
       </g>
     </SvgIcon>
-  </>
-)
+  )
+}
 
 export default React.memo(MenuIcon)

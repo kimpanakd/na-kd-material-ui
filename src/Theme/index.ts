@@ -8,6 +8,33 @@ const themeOptions: ThemeOptions = {
       dark: '#000',
     },
   },
+  typography: {
+    fontFamily: 'proxima-nova,sans-serif',
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        html: {
+          WebkitFontSmoothing: 'auto',
+          boxSizing: 'border-box',
+          fontSize: '62.5%',
+          lineHeight: '1.4em',
+        },
+      },
+    },
+    MuiIconButton: {
+      root: {
+        padding: 16,
+      },
+    },
+    MuiSvgIcon: {
+      root: {
+        fontSize: 24,
+        height: 24,
+        width: 24,
+      },
+    },
+  },
 }
 
 export const theme = createMuiTheme(themeOptions)
