@@ -20,6 +20,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-sonarjs": "^0.6.0",
     "global-hook-store": "^1.0.3",
+    "http-proxy-middleware": "^1.0.6",
     "husky": "^5.0.9",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
@@ -43,6 +44,7 @@
     "isready": "npm run format && npm run lint && npm run build",
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
+  "proxy": "https://api.feature1.na-kd.com",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

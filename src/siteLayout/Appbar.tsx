@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import { IconButton, useScrollTrigger } from '@material-ui/core'
+import { Box, IconButton, useScrollTrigger } from '@material-ui/core'
 import MenuIcon from '../assets/icons/MenuIcon'
 import LogoIcon from '../assets/icons/LogoIcon'
 import UserIcon from '../assets/icons/UserIcon'
@@ -17,16 +17,18 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       boxShadow: theme.shadows[0],
       backgroundColor: theme.palette.background.default,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
     },
     toolbar: {
       paddingLeft: 0,
       paddingRight: 0,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
     },
     searchToolbar: {
       position: 'sticky',
+      left: 0,
+      top: theme.mixins.toolbar.minHeight,
       backgroundColor: theme.palette.background.default,
       paddingBottom: theme.spacing(2),
     },
@@ -53,27 +55,30 @@ const Appbar: React.FC = () => {
 
   return (
     <>
-      <AppBar position="sticky" className={classes.root}>
+      <AppBar position="fixed" className={classes.root}>
         <Toolbar className={classes.toolbar}>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon fontSize="small" />
-          </IconButton>
-          <IconButton className={classes.logotype} color="inherit" aria-label="na-kd">
-            <LogoIcon />
-          </IconButton>
-        </Toolbar>
-        <Toolbar className={classes.toolbar}>
-          <IconButton color="inherit" aria-label="mypages">
-            <UserIcon />
-          </IconButton>
-          <IconButton color="inherit" aria-label="likes">
-            <LikeIcon />
-          </IconButton>
-          <IconButton color="inherit" aria-label="cart">
-            <CartIcon />
-          </IconButton>
+          <Box>
+            <IconButton className={classes.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon fontSize="small" />
+            </IconButton>
+            <IconButton className={classes.logotype} color="inherit" aria-label="na-kd">
+              <LogoIcon />
+            </IconButton>
+          </Box>
+          <Box>
+            <IconButton color="inherit" aria-label="mypages">
+              <UserIcon />
+            </IconButton>
+            <IconButton color="inherit" aria-label="likes">
+              <LikeIcon />
+            </IconButton>
+            <IconButton color="inherit" aria-label="cart">
+              <CartIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
+      <Toolbar />
       <Slide appear={false} direction="down" in={!trigger}>
         <Toolbar className={classes.searchToolbar}>
           <InputBase

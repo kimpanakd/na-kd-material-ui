@@ -6,9 +6,7 @@ import { productsStore } from '../stores/productsStore'
 
 const useStyles = makeStyles(() =>
   createStyles({
-    root: {
-      width: '100vw',
-    },
+    root: {},
   })
 )
 
