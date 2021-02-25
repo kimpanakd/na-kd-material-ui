@@ -5,20 +5,12 @@ import reportWebVitals from './reportWebVitals'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { theme } from './theme'
-import { setAuthTokens } from './utils/setAuthTokens'
-
-const App: React.FC = () => (
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <SiteLayout />
-    </ThemeProvider>
-  </React.StrictMode>
-)
+import { setAuthTokens } from './services/authService'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <SiteLayout />
+  </ThemeProvider>,
   document.getElementById('root')
 )
 

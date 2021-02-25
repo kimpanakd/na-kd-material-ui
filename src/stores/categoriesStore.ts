@@ -1,29 +1,23 @@
-import { createStore } from 'global-hook-store'
+import { asyncState, createStore } from 'global-hook-store'
+import { categoriesApi } from '../services/fetchService'
 
-type PropTypes = {
+export type DataType = {
   identifier: string
   productCount: number
-  subCategories: PropTypes[]
+  subCategories: DataType[]
   title: string
 }
 
-const categoriesStore = createStore({} as PropTypes[], {
-  getCategories: async () => {
-    const ACCESS_TOKEN = localStorage.getItem('access_token')
-    try {
-      const response = await fetch(`/v1/categories/?countryCode=SWE`, {
-        method: 'GET',
-        headers: {
-          authorization: `Bearer ${ACCESS_TOKEN}`,
-          contentType: 'application/json',
-        },
-      })
-      const data: PropTypes[] = await response.json()
-      return { ...data }
-    } catch (err) {
-      // TODO: catch the error for expired access_token and do a request with the refresh_token
-    }
+const categoriesStore = createStore(
+  {
+    data: asyncState<DataType[]>([]),
+    menuOpen: false,
   },
-})
+  {
+    getCategories: async (_state, _payload: null, { asyncAction }) => asyncAction('data', categoriesApi.getData()),
+    toggleMenu: state => ({ ...state, menuOpen: !state.menuOpen }),
+    closeMenu: state => ({ ...state, menuOpen: false }),
+  }
+)
 
 export { categoriesStore }

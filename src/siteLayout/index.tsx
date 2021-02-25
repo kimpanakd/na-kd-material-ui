@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Appbar from './Appbar'
 import { Container } from '@material-ui/core'
-import Product from '../pages/Product'
+import Product from '../pages/ProductList'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
-      width: '100vw',
+      paddingTop: theme.spacing(2),
       height: '100vh',
-      backgroundColor: '#b3b3b3', //theme.palette.background.paper,
+      backgroundColor: theme.palette.background.paper,
     },
   })
 )
 
 const SiteLayout: React.FC = () => {
   const classes = useStyles()
+  const [access, setAccess] = useState(false)
+  const ACCESS_TOKEN = localStorage.getItem('access_token')
 
-  return (
+  useEffect(() => {
+    ACCESS_TOKEN && setAccess(true)
+  }, [setAccess, ACCESS_TOKEN])
+
+  return access ? (
     <>
       <CssBaseline />
       <Appbar />
@@ -26,7 +32,7 @@ const SiteLayout: React.FC = () => {
         <Product />
       </Container>
     </>
-  )
+  ) : null
 }
 
 export default SiteLayout

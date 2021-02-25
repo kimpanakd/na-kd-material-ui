@@ -44,7 +44,6 @@
     "isready": "npm run format && npm run lint && npm run build",
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
-  "proxy": "https://api.feature1.na-kd.com",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

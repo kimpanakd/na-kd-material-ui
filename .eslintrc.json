@@ -36,7 +36,8 @@
     ],
     "sonarjs/explicit-module-boundary-types": 0,
     "sonarjs/prefer-immediate-return": 0,
-    "explicit-module-boundary-types": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "sonarjs/no-duplicate-string": 0,
     "no-restricted-imports": [
       "error",
       {

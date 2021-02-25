@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -11,6 +11,9 @@ import CartIcon from '../assets/icons/CartIcon'
 import Slide from '@material-ui/core/Slide'
 import InputBase from '@material-ui/core/InputBase'
 import SearchIcon from '../assets/icons/SearchIcon'
+import useStore from 'global-hook-store'
+import { categoriesStore } from '../stores/categoriesStore'
+import Menu from './Menu'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,6 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
       top: theme.mixins.toolbar.minHeight,
       backgroundColor: theme.palette.background.default,
       paddingBottom: theme.spacing(2),
+      zIndex: 8,
     },
     menuButton: {
       width: 56,
@@ -52,13 +56,18 @@ const useStyles = makeStyles((theme: Theme) =>
 const Appbar: React.FC = () => {
   const classes = useStyles()
   const trigger = useScrollTrigger()
+  const { state, actions } = useStore(categoriesStore)
+
+  useEffect(() => {
+    actions.getCategories()
+  }, [actions])
 
   return (
     <>
       <AppBar position="fixed" className={classes.root}>
         <Toolbar className={classes.toolbar}>
           <Box>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton className={classes.menuButton} color="inherit" aria-label="menu" onClick={actions.toggleMenu}>
               <MenuIcon fontSize="small" />
             </IconButton>
             <IconButton className={classes.logotype} color="inherit" aria-label="na-kd">
@@ -89,6 +98,7 @@ const Appbar: React.FC = () => {
           />
         </Toolbar>
       </Slide>
+      <Menu {...state} toggleMenu={actions.toggleMenu} closeMenu={actions.closeMenu} />
     </>
   )
 }
