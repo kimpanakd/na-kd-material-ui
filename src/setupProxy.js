@@ -6,14 +6,14 @@ module.exports = function (app) {
   app.use(
     '/connect/token',
     createProxyMiddleware({
-      target: 'https://identity.feature1.na-kd.com',
+      target: 'https://identity.integration.na-kd.com',
       changeOrigin: true,
     })
   )
   app.use(
     '/v1',
     createProxyMiddleware({
-      target: 'https://api.feature1.na-kd.com',
+      target: 'https://api.integration.na-kd.com',
       changeOrigin: true,
     })
   )
